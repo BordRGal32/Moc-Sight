@@ -12,4 +12,26 @@ class LinksController < ApplicationController
             index
         end
     end
+    def show
+        @link = Link.find(params[:id])
+    end
+    def update
+        @link = Link.find(params[:id])
+
+        if @link.update(link_params)
+            redirect_to links_path
+        else
+            show
+        end
+    end
+    def destroy
+        @link = Link.find(params[:id])
+        @link.destroy
+        @links = Link.all
+        redirect_to links_path
+    end
+
+    def link_params
+        params.require(:link).permit(:name, :url)
+    end
 end

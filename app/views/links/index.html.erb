@@ -3,22 +3,13 @@
 
 <ul>
     <%@links.each do |l| %>
-        <li><%= link_to l.name, links_path(link) %></li>
+        <li><%= link_to l.name, link_path(l) %></li>
     <% end %>
 </ul>
 
 <hr>
 
-<button class="new btn-default">New Link</button>
+<button class="new hide_buttons btn-default">New Link</button>
 
-<%= render("layouts/errors", :object => @link) %>
-<div class="hidden_form">
-    <div class="form-group">
-        <%= form_for(@link) do |f| %>
-        <%= f.label :name %>
-        <%= f.text_field :name %>
-    </div>
-    <%= f.submit(:class => "btn btn-primary") %>
-    <% end %>
-</div>
+<%= render("form") %>
 
