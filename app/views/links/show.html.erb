@@ -1,4 +1,5 @@
 <h1><%= @link.name %></h1>
+<h2><a href="http://<%=@link.url%>"><%=@link.url%></a></h2>
 
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <%= link_to "Home", links_path, :class => "navbar-brand" %>
@@ -19,6 +20,20 @@
 
 
 <hr>
-<p>Votes</p>
+<h3>Was This Link Helpful?</h3>
+
+<form action="/links/<%=@link.id%>/votes" method="post">
+    <input name="vote[vote_status]" value="1" type="hidden">
+    <button class="btn btn-danger">Vote Up</button>
+</form><br>
+
+<form action="/links/<%=@link.id%>/votes" method="post">
+    <input name="vote[vote_status]" value="-1" type="hidden">
+    <button class="btn btn-danger">Vote Down</button>
+</form>
+
+
+<hr>
+
 <p> Put information related to votes here </p>
 

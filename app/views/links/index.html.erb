@@ -1,8 +1,9 @@
 <h1>Mock Hacker News Website<h1>
 <hr>
 
+ why don't you work
 <ul>
-    <%@links.each do |l| %>
+    <%@links.order(order: :desc) .each do |l| %>
         <li><%= link_to l.name, link_path(l) %></li>
     <% end %>
 </ul>
